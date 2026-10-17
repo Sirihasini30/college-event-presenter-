@@ -90,7 +90,7 @@ const Events = {
       return `
         <div class="event-card">
           <div class="event-image-wrap">
-            <img src="${ev.image || 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800'}" alt="${ev.title}" loading="lazy" />
+            <img src="${ev.image || 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800'}" alt="${ev.title}" loading="lazy" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800';" />
             <span class="event-category-badge">${ev.category}</span>
             <div class="event-status-badge">${statusBadge}</div>
           </div>
@@ -187,7 +187,7 @@ const Events = {
           <!-- Hero Banner Header -->
           <div class="card" style="padding: 0; overflow: hidden; margin-bottom: 2rem;">
             <div style="position: relative; height: 320px; background: #1e1b4b;">
-              <img src="${ev.image || 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1200'}" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.85;" />
+              <img src="${ev.image || 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1200'}" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.85;" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1200';" />
               <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 2rem; background: linear-gradient(180deg, transparent 0%, rgba(15, 23, 42, 0.95) 100%); color: white;">
                 <div style="display: flex; gap: 0.5rem; margin-bottom: 0.75rem;">
                   <span class="badge" style="background: var(--primary); color: white;">${ev.category}</span>

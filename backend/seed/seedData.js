@@ -270,7 +270,7 @@ const seedData = async () => {
       capacity: 50,
       presenter: presenter3._id,
       status: 'completed',
-      image: 'https://images.unsplash.com/photo-1581291518655-9523c932dede?w=800&auto=format&fit=crop&q=60',
+      image: 'https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=800&auto=format&fit=crop&q=60',
       registrationFee: 249,
       isPaid: true,
       upiId: 'RANGA SIRIHASINI',
