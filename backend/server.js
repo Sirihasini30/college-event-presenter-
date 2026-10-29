@@ -88,6 +88,21 @@ const startServer = async (customPort) => {
       console.log('===========================================================');
     });
 
+    server.on('error', (err) => {
+      if (err.code === 'EADDRINUSE') {
+        console.log('===========================================================');
+        console.log(`[NOTICE] Port ${portToUse} is already in use!`);
+        console.log(`The server is already running and active on http://localhost:${portToUse}`);
+        console.log(`👉 You can open http://localhost:${portToUse} directly in your browser.`);
+        console.log(`👉 To restart fresh, run: npm run clean-port`);
+        console.log('===========================================================');
+        process.exit(0);
+      } else {
+        console.error('[Server Error]', err.message);
+        process.exit(1);
+      }
+    });
+
     // Connect to database
     try {
       await connectDB();

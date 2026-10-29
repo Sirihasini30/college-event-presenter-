@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node backend/server.js",
     "dev": "node backend/server.js",
+    "clean-port": "powershell -Command \"Get-NetTCPConnection -LocalPort 5000 -ErrorAction SilentlyContinue | ForEach-Object { Stop-Process -Id $_.OwningProcess -Force -ErrorAction SilentlyContinue }\"",
     "seed": "node backend/seed/seedData.js",
     "test": "node test-api.js"
   },
