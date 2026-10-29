@@ -48,6 +48,18 @@ app.get('/api/health', (req, res) => {
   });
 });
 
+// Ensure Database is connected before API requests (supports Vercel serverless execution)
+app.use(async (req, res, next) => {
+  if (req.originalUrl.startsWith('/api')) {
+    try {
+      await connectDB();
+    } catch (e) {
+      console.error('[DB Middleware Error]', e.message);
+    }
+  }
+  next();
+});
+
 // Mount REST API Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/events', eventRoutes);
@@ -128,4 +140,6 @@ if (require.main === module) {
   startServer();
 }
 
-module.exports = { app, startServer };
+module.exports = app;
+module.exports.app = app;
+module.exports.startServer = startServer;
